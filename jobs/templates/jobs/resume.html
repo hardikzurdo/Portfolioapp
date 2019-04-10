@@ -1,0 +1,15 @@
+
+{% extends 'jobs/home.html' %}
+
+{%block content%}
+{% for r in res.all %}
+
+{{r.desc}}
+<br/>
+<br/>
+<br/>
+<div class="container align-center">
+<object width="95%" height="900" data="{{r.doc.url}}">sss</object>
+</div>
+{% endfor %}
+{% endblock %}
