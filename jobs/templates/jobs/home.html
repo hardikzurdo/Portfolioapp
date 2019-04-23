@@ -72,6 +72,7 @@
   <link href="album.css" rel="stylesheet">
 </head>
 <body>
+  {% block header %}
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark ">
       <a class="navbar-brand" href="{% url 'home' %}">Hardik Patel</a>
@@ -86,12 +87,13 @@
           <a class="nav-item nav-link active" href="#Projects">Projects</a>
           <a class="nav-item nav-link active" href="#Education">Education</a>
           <a class="nav-item nav-link active" href="{% url 'resume' %}">Resume</a>
-          <a class="nav-item nav-link active" href="#">Blogs</a>
+          <a class="nav-item nav-link active" href="blogs">Blogs</a>
           <a class="nav-item nav-link active" href="#Contact">Contact Me</a>
         </div>
       </div>
     </nav>
   </header>
+  {% endblock %}
   <section id="home">
     <div class = "home">
 
@@ -100,10 +102,10 @@
       <main role="main"><br/><br/>
         <div class="container"><br/><br/>
           <h1 class="jumbotron-heading text-center" style="color:white;">Hi, I'm Hardik Patel</h1>
-          <p class="lead text-muted text-center" style="color:white;" >I'm web developer.</p>
+          <p class="lead text-muted text-center" style="color:white;" >I'm a full-stack web developer.</p>
           <p style="text-align:center">
             <a href="mailto:hardik172@gmail.com" class="btn btn-primary my-2 ">Email Me</a></p><br/><br/><br/><br/>
-            <h1 class="jumbotron-heading text-center" style="font-family: 'Monoton', cursive; color:#ccff66; background: rgba(0, 0, 0, 0.4); word-spacing: 20px;letter-spacing: 3px;">I  want   to   make   things <br> that makes a difference.</h1>
+            <h1 class="jumbotron-heading text-center" style="font-family: 'Monoton', cursive; color:#ccff66; background: rgba(0, 0, 0, 0.4); word-spacing: 20px;letter-spacing: 3px;">I want to make things <br> that make a difference.</h1>
             <br/>
             <div align="left">
               {% for a in abt.all %}
@@ -258,33 +260,22 @@
   <div class="container">
     <div class="row" >
       {% for c in cont.all %}
-      <div class="col-md-6 ">
 
 
-        <div class="jumbotron-fluid" style="font-family: 'Arima Madurai', cursive; color:black; background: rgba(0, 0, 0, 0.1);" >
-          <div class="container">
+        <div class="container ">
 
-          <h2 class="display-5 " > {{c.email}}</h2>
-          <h2 class="display-6 " > {{c.phno}}</h2>
-          <h2 class="display-6 " > {{c.address|linebreaksbr}}</h2>
-          <h2 class="display-6 " > {{c.facebook}}</h2>
-          <p > {{e.project|linebreaksbr}}</p>
+              <a href="mailto:{{c.Email}}" ><img src="static/email2.png" style="width: 100px; height:100px;"/>{{c.Email}}</a><br/>
+              <a href="{{c.linkedin}} "  ><img src="static/linkedin3.png" style="width: 100px; height:100px;"/>{{c.linkedin}}</a><br/>
+              <a href="{{c.stackover}}"  ><img src="static/stack3.png" style="width: 100px; height:100px;" />{{c.stackover}}</a><br/>
+              <a href="{{c.github}} " ><img src="static/github3.png" style="width: 100px; height:100px; "/>{{c.github}}</a><br/>
+              <a href="{{c.twitter}}"  ><img src="static/twitter3.png" style="width: 100px; height:100px;"/>{{c.twitter}}</a><br/>
+
+
+
         </div>
-          </div>
-          </div>
 
-          <div class="col-md-6 ">
-          <div class="jumbotron-fluid" style="font-family: 'Arima Madurai', cursive; color:black; background: rgba(0, 0, 0, 0.1);" >
-            <div class="container">
+        <br/>
 
-                  <img src="static/facebook.png" style="width: 100px; height:100px; "/>
-                  <img src="static/twitter.png" style="width: 100px; height:100px; "/>
-                  <img src="static/linkedin.png" style="width: 100px; height:100px; "/>
-                  <img src="static/stack.png" style="width: 100px; height:100px; "/>
-            </div>
-            </div>
-            <br/>
-          </div>
 
 
         {% endfor %}
@@ -295,9 +286,10 @@
 
 </main>
 
-<footer class="text-muted">
+<footer class="text-muted bg-dark">
   <div class="container text-center">
-    <p> ©️ Hardik Patel {% now "Y"%}</p>
+
+    <p> ©️ Hardik Patel {% now "Y"%} In Love with Django and Python</p>
   </div>
 </footer>
 

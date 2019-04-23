@@ -36,10 +36,11 @@ class Education(models.Model):
 
 class Contact(models.Model):
     Email = models.EmailField()
-    phno = models.IntegerField()
+    phno = models.CharField(max_length = 30)
     address = models.TextField(max_length = 500)
     map = models.ImageField(upload_to = 'images/',blank = True)
     facebook = models.URLField(max_length = 200, blank = True)
     twitter = models.URLField(max_length = 200, blank = True)
     linkedin = models.URLField(max_length = 200, blank = True)
     stackover = models.URLField(max_length = 200, blank = True)
+    github = models.URLField(max_length = 200, blank = True)

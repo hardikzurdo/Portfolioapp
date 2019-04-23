@@ -18,3 +18,6 @@ def info(request):
 
 
     return render(request,'jobs/home.html',{})
+
+def blog(request):
+    return render(request,'blog/allblogs.html',{})
